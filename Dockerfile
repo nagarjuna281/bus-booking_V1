@@ -1,23 +1,34 @@
-# Use the official Node.js 16 image as the base image
-FROM node:16-alpine
+# Use Node.js LTS version
+FROM node:18-alpine
 
-# Set the working directory inside the container
+# Set working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json (or yarn.lock) to the container
+# Copy package files
 COPY package*.json ./
+COPY .eslintrc.json ./
 
-# Install project dependencies
-RUN npm install
+# Install ALL dependencies (including dev dependencies for testing)
+RUN npm ci
 
-# Copy the rest of the application code to the container
-COPY . .
+# Copy source code
+COPY src/ ./src/
+COPY tests/ ./tests/
 
-# Build the React app
-RUN npm run build
+# Create non-root user for security
+RUN addgroup -g 1001 -S nodejs
+RUN adduser -S nextjs -u 1001
 
-# Expose the port that the app will run on (usually 3000 by default)
+# Change ownership to non-root user
+RUN chown -R nextjs:nodejs /app
+USER nextjs
+
+# Expose port
 EXPOSE 3000
 
-# Start the React app when the container starts
-CMD [ "npm", "start" ]
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD node health-check.js || exit 1
+
+# Start the application
+CMD ["npm", "start"]
