@@ -6,10 +6,10 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
-    "test": "jest --coverage",
+    "test": "jest --coverage --coverageReporters=lcov --coverageReporters=text-summary",
+    "test:watch": "jest --watch",
     "lint": "eslint src/ tests/",
-    "lint:fix": "eslint src/ tests/ --fix",
-    "sonar": "sonar-scanner"
+    "lint:fix": "eslint src/ tests/ --fix"
   },
   "keywords": ["bus", "booking", "nodejs"],
   "author": "Your Name",
