@@ -38,8 +38,6 @@ The Jenkins pipeline is configured directly in the Jenkins UI and includes the f
 ## 📂 Project Structure
 ```
 project-root/
-│── Dockerfile
-│── trivy.yaml
 └── manifests/
     ├── deployment.yaml
     └── service.yaml
@@ -75,5 +73,3 @@ Feel free to fork this repo, raise issues, or submit pull requests to improve th
 ## 📜 License
 This project is licensed under the MIT License.
 ```
-
----
