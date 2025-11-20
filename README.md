@@ -37,7 +37,7 @@ The Jenkins pipeline is configured directly in the Jenkins UI and includes the f
 
 ## 📂 Project Structure
 ```
-project-root/
+bus-booking_V1/
 └── manifests/
     ├── deployment.yaml
     └── service.yaml
@@ -54,7 +54,7 @@ Security is embedded into the pipeline:
 - Promotes DevSecOps by integrating security checks into CI/CD lifecycle  
 
 ## 📊 Architecture Diagram
-*(Insert pipeline diagram here — showing GitHub → Jenkins → Docker build & Trivy scan → DockerHub → ArgoCD → Kubernetes → Prometheus → Grafana)*
+<img width="1600" height="900" alt="Untitled Diagram drawio" src="https://github.com/user-attachments/assets/4cfffe01-db14-4881-8dca-72dba4e6fda4" />
 
 ## 🚀 Deployment Flow
 - Jenkins triggers pipeline on code commit  
