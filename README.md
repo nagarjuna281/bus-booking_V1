@@ -5,7 +5,6 @@
 ## 📖 Overview
 This project demonstrates a fully automated CI/CD pipeline built on an AWS EC2 instance with Kubernetes integration.  
 It streamlines code quality checks, containerization, vulnerability scanning, and deployment — all monitored with Prometheus and Grafana.
-<img width="1600" height="900" alt="3" src="https://github.com/user-attachments/assets/d22023d5-9e0c-48f4-bfc4-c55fd58fd1d1" />
 
 ## ⚙️ Tools & Technologies
 - **Jenkins**: CI/CD automation server (configured via Jenkins UI)
